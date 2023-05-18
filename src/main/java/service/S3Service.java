@@ -16,9 +16,9 @@ public class S3Service {
 
 
     @Value("${aws.s3.bucketName}")
-    private String bucketName;
+    private static String bucketName;
 
-    public String uploadResume(MultipartFile resume) throws IOException {
+    public static String uploadResume(String fileName, MultipartFile resume) throws IOException {
 
     S3Client s3Client = S3Client.builder().region(Region.AP_SOUTH_1).
             credentialsProvider(DefaultCredentialsProvider.create()).build();
